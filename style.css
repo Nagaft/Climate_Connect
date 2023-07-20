@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #283c86;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+  
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+   
+  }
+  
+  .header {
+    align-self: center;
+    padding: 20px;
+    background: #00B4DB;
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    align-content: center;
+    opacity: 75%;
+    background: rgba(0, 180, 219, 0.75);
+    text-align: center; /* Add this property to center the text */
+  }
+
+#current-weather{
+    flex-basis: calc(20% - 20px); /* You can adjust the percentage to your liking */
+    margin: 10px;
+    padding: 10px;
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    background: #ee0979;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+
+#forecast {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  .forecast-item {
+    flex-basis: calc(20% - 20px); /* You can adjust the percentage to your liking */
+    margin: 10px;
+    padding: 10px;
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    background: #FFEFBA;
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  input {
+    padding: 5px;
+  }
+  
+  button {
+    padding: 5px 10px;
+  }
+  
+  #current-weather, #forecast, #search-history {
+    margin-top: 20px;
+  }
+  
