@@ -75,4 +75,23 @@ background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, F
   #current-weather, #forecast, #search-history {
     margin-top: 20px;
   }
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .forecast-item {
+      flex-basis: calc(50% - 20px);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .container {
+      padding: 5px;
+    }
+  
+    .forecast-item {
+      flex-basis: calc(100% - 20px);
+    }
+  }
   
