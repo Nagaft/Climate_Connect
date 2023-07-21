@@ -23,11 +23,11 @@ background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, F
     align-content: center;
     opacity: 75%;
     background: rgba(0, 180, 219, 0.75);
-    text-align: center; /* Add this property to center the text */
+    text-align: center; 
   }
 
 #current-weather{
-    flex-basis: calc(20% - 20px); /* You can adjust the percentage to your liking */
+    flex-basis: calc(20% - 20px); 
     margin: 10px;
     padding: 10px;
     background-color: #F0F0F0;
@@ -48,7 +48,7 @@ background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, F
   }
   
   .forecast-item {
-    flex-basis: calc(20% - 20px); /* You can adjust the percentage to your liking */
+    flex-basis: calc(20% - 20px); 
     margin: 10px;
     padding: 10px;
     background-color: #F0F0F0;

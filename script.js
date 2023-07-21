@@ -42,7 +42,7 @@ function displayCurrentWeather(current) {
     var city = current.name;
     var date = new Date(current.dt * 1000).toLocaleDateString();
     var iconUrl = `http://openweathermap.org/img/w/${current.weather[0].icon}.png`;
-    var temperature = (current.main.temp - 273.15).toFixed(2); // Convert from Kelvin to Celsius
+    var temperature = (current.main.temp - 273.15).toFixed(2); 
     var humidity = current.main.humidity;
     var windSpeed = current.wind.speed;
   
@@ -60,34 +60,35 @@ function displayCurrentWeather(current) {
     forecastContainer.innerHTML = '';
   
     var currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0); // Set time to midnight to compare only the dates
+    currentDate.setHours(0, 0, 0, 0); // Set time to midnight
   
-    forecast.forEach((day) => {
-      var date = new Date(day.dt * 1000);
-      date.setHours(0, 0, 0, 0); // Set time to midnight to compare only the dates
+    var dayIndex = currentDate.getDay(); // Get the index of the current day (0 = Sunday, 1 = Monday, etc.)
   
-      if (date >= currentDate) {
-        var dayName = getDayName(date.getDay());
-        var iconUrl = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`;
-        var temperature = (day.main.temp - 273.15).toFixed(2);
-        var humidity = day.main.humidity;
-        var windSpeed = day.wind.speed;
+    forecast.forEach((day, index) => {
+      var date = new Date(currentDate);
+      date.setDate(date.getDate() + index); // Increment the date for each forecast day
   
-        var forecastItem = document.createElement('div');
-        forecastItem.classList.add('forecast-item');
+      var dayName = getDayName(date.getDay());
+      var iconUrl = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`;
+      var temperature = (day.main.temp - 273.15).toFixed(2);
+      var humidity = day.main.humidity;
+      var windSpeed = day.wind.speed;
   
-        forecastItem.innerHTML = `
-          <p>${dayName}</p>
-          <img src="${iconUrl}" alt="Weather Icon">
-          <p>Temperature: ${temperature}°C</p>
-          <p>Humidity: ${humidity}%</p>
-          <p>Wind Speed: ${windSpeed} m/s</p>
-        `;
+      var forecastItem = document.createElement('div');
+      forecastItem.classList.add('forecast-item');
   
-        forecastContainer.appendChild(forecastItem);
-      }
+      forecastItem.innerHTML = `
+        <p>${dayName}</p>
+        <img src="${iconUrl}" alt="Weather Icon">
+        <p>Temperature: ${temperature}°C</p>
+        <p>Humidity: ${humidity}%</p>
+        <p>Wind Speed: ${windSpeed} m/s</p>
+      `;
+  
+      forecastContainer.appendChild(forecastItem);
     });
   }
+  
   
   function getDayName(dayIndex) {
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -124,22 +125,18 @@ function displayWeatherData(cityName) {
       var searchHistoryItem = document.createElement('p');
       searchHistoryItem.textContent = cityName;
   
-      // Fetch weather data for the city to get the emoji and temperature
       getWeatherData(cityName)
         .then((data) => {
           var icon = data.current.weather[0].icon;
           var temperature = (data.current.main.temp - 273.15).toFixed(2);
   
-          // Add emoji and temperature to the city name
           searchHistoryItem.textContent = `${cityName} ${getEmoji(icon)} ${temperature}°C`;
         })
         .catch((error) => {
           console.error(error);
-          // If there's an error fetching weather data, still display the city name without emoji and temperature
           searchHistoryItem.textContent = cityName;
         });
-  
-      // Add a click event listener to fetch weather data for the clicked city
+
       searchHistoryItem.addEventListener('click', function () {
         cityInput.value = cityName;
         searchForm.dispatchEvent(new Event('submit'));
@@ -152,24 +149,24 @@ function displayWeatherData(cityName) {
   function getEmoji(icon) {
    
     const emojiMap = {
-      '01d': '☀️', // clear sky (day)
-      '01n': '🌙', // clear sky (night)
-      '02d': '⛅️', // few clouds (day)
-      '02n': '☁️', // few clouds (night)
-      '03d': '☁️', // scattered clouds (day)
-      '03n': '☁️', // scattered clouds (night)
-      '04d': '☁️', // broken clouds (day)
-      '04n': '☁️', // broken clouds (night)
-      '09d': '🌧', // shower rain (day)
-      '09n': '🌧', // shower rain (night)
-      '10d': '🌦', // rain (day)
-      '10n': '🌦', // rain (night)
-      '11d': '⛈', // thunderstorm (day)
-      '11n': '⛈', // thunderstorm (night)
-      '13d': '🌨', // snow (day)
-      '13n': '🌨', // snow (night)
-      '50d': '🌫', // mist (day)
-      '50n': '🌫', // mist (night)
+      '01d': '☀️', 
+      '01n': '🌙', 
+      '02d': '⛅️', 
+      '02n': '☁️', 
+      '03d': '☁️', 
+      '03n': '☁️', 
+      '04d': '☁️', 
+      '04n': '☁️', 
+      '09d': '🌧', 
+      '09n': '🌧', 
+      '10d': '🌦', 
+      '10n': '🌦', 
+      '11d': '⛈', 
+      '11n': '⛈', 
+      '13d': '🌨', 
+      '13n': '🌨', 
+      '50d': '🌫', 
+      '50n': '🌫', 
     };
 
     return emojiMap[icon] || '';
