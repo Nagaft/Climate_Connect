@@ -1,7 +1,8 @@
 # Climate_Connect
 
 A simple web page that allows you to search for a city and view its current and future weather conditions.
-![image](https://github.com/Nagaft/Climate_Connect/assets/135068393/90bb09ba-2d29-4e57-b69b-5cf7a643fa1e)
+![image](https://github.com/Nagaft/Climate_Connect/assets/135068393/079e8224-07e0-4a36-a854-3b8a181de69b)
+
 
 
 ## Table of Contents
