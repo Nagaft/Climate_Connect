@@ -60,13 +60,13 @@ function displayCurrentWeather(current) {
     forecastContainer.innerHTML = '';
   
     var currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0); // Set time to midnight
+    currentDate.setHours(0, 0, 0, 0); 
   
-    var dayIndex = currentDate.getDay(); // Get the index of the current day (0 = Sunday, 1 = Monday, etc.)
+    var dayIndex = currentDate.getDay(); 
   
     forecast.forEach((day, index) => {
       var date = new Date(currentDate);
-      date.setDate(date.getDate() + index); // Increment the date for each forecast day
+      date.setDate(date.getDate() + index); 
   
       var dayName = getDayName(date.getDay());
       var iconUrl = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`;
